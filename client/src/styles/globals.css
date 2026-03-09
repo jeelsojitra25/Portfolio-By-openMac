@@ -5,8 +5,8 @@
 :root {
   --bg-900: #090b14;
   --bg-800: #12162a;
-  --accent: #ef8354;
-  --accent-soft: #f8ba85;
+  --accent: #00FFB2;
+  --accent-soft: #40ffca;
   --ink-100: #f6f4ef;
   --ink-300: #d6d1c7;
   --ink-500: #8b8597;
@@ -24,8 +24,8 @@ body {
   color: var(--ink-100);
   font-family: 'DM Mono', monospace;
   background:
-    radial-gradient(circle at 12% 22%, rgba(239, 131, 84, 0.24), transparent 40%),
-    radial-gradient(circle at 78% 2%, rgba(248, 186, 133, 0.2), transparent 48%),
+    radial-gradient(circle at 12% 22%, rgba(0, 255, 178, 0.10), transparent 40%),
+    radial-gradient(circle at 78% 2%, rgba(0, 255, 178, 0.06), transparent 48%),
     linear-gradient(160deg, var(--bg-900), var(--bg-800));
 }
 
@@ -141,7 +141,7 @@ a {
 
 .hero-btn-solid {
   background: var(--accent);
-  color: #1c1f2f;
+  color: #030712;
   font-weight: 600;
 }
 
@@ -206,7 +206,7 @@ a {
 
 .contact-section {
   padding: 8rem 8vw;
-  background: radial-gradient(ellipse at center, rgba(248, 186, 133, 0.09) 0%, transparent 62%);
+  background: radial-gradient(ellipse at center, rgba(0, 255, 178, 0.06) 0%, transparent 62%);
 }
 
 .contact-content {
@@ -247,7 +247,7 @@ a {
   z-index: 9999;
   transform: translate(-50%, -50%);
   transition: width 0.2s, height 0.2s, background 0.2s, opacity 0.2s;
-  box-shadow: 0 0 12px var(--accent-soft), 0 0 24px rgba(248, 186, 133, 0.35);
+  box-shadow: 0 0 12px var(--accent-soft), 0 0 24px rgba(0, 255, 178, 0.35);
   will-change: transform;
 }
 
@@ -280,8 +280,8 @@ a {
 
 .glass-card:hover {
   transform: translateY(-4px);
-  border-color: rgba(248, 186, 133, 0.45);
-  box-shadow: 0 0 32px rgba(248, 186, 133, 0.1);
+  border-color: rgba(0, 255, 178, 0.35);
+  box-shadow: 0 0 32px rgba(0, 255, 178, 0.1);
 }
 
 @keyframes ticker {
