@@ -7,34 +7,54 @@ export default function CustomCursor() {
     const dot = dotRef.current;
     if (!dot) return;
 
-    let x = 0, y = 0;
+    const cursorAllowed =
+      window.matchMedia('(pointer:fine)').matches &&
+      !window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    if (!cursorAllowed) {
+      dot.style.display = 'none';
+      return;
+    }
+
     const move = (e) => {
-      x = e.clientX; y = e.clientY;
-      dot.style.left = x + 'px';
-      dot.style.top  = y + 'px';
+      dot.style.left = `${e.clientX}px`;
+      dot.style.top = `${e.clientY}px`;
     };
 
     const expand = () => dot.classList.add('expanded');
     const shrink = () => dot.classList.remove('expanded');
 
-    window.addEventListener('mousemove', move, { passive: true });
-    document.querySelectorAll('a, button, [role="button"]').forEach(el => {
+    const attachHoverListeners = (el) => {
       el.addEventListener('mouseenter', expand);
       el.addEventListener('mouseleave', shrink);
-    });
+    };
 
-    // Re-bind on DOM changes via MutationObserver
+    const detachHoverListeners = (el) => {
+      el.removeEventListener('mouseenter', expand);
+      el.removeEventListener('mouseleave', shrink);
+    };
+
+    const bindAll = () => {
+      document.querySelectorAll('a, button, [role="button"]').forEach(attachHoverListeners);
+    };
+
+    const unbindAll = () => {
+      document.querySelectorAll('a, button, [role="button"]').forEach(detachHoverListeners);
+    };
+
+    window.addEventListener('mousemove', move, { passive: true });
+    bindAll();
+
     const obs = new MutationObserver(() => {
-      document.querySelectorAll('a, button, [role="button"]').forEach(el => {
-        el.addEventListener('mouseenter', expand);
-        el.addEventListener('mouseleave', shrink);
-      });
+      unbindAll();
+      bindAll();
     });
     obs.observe(document.body, { childList: true, subtree: true });
 
     return () => {
       window.removeEventListener('mousemove', move);
       obs.disconnect();
+      unbindAll();
     };
   }, []);
 

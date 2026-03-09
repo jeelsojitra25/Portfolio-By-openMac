@@ -5,6 +5,8 @@ const helmet = require('helmet');
 const cors = require('cors');
 const morgan = require('morgan');
 const cookieParser = require('cookie-parser');
+const fs = require('fs');
+const path = require('path');
 const pool = require('./db/connection');
 const { cache } = require('./middleware/cache');
 const rateLimiter = require('./middleware/rateLimiter');
@@ -105,7 +107,18 @@ app.get('/api/health', (req, res) => {
 app.use(errorHandler);
 
 // ─── Start ────────────────────────────────────────────────────────────
-app.listen(PORT, () => {
+async function runMigrations() {
+  const sql = fs.readFileSync(path.join(__dirname, 'db', 'schema.sql'), 'utf8');
+  await pool.query(sql);
+  console.log('[db] Schema applied');
+}
+
+app.listen(PORT, async () => {
+  try {
+    await runMigrations();
+  } catch (err) {
+    console.error('[db] Migration error:', err.message);
+  }
   console.log(`[server] Running on port ${PORT} (${process.env.NODE_ENV || 'development'})`);
 });
 

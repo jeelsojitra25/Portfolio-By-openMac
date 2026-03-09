@@ -36,7 +36,7 @@ services:
           name: jeel-portfolio-db
           property: connectionString
       - key: CORS_ORIGIN
-        value: https://jeelsojitra.tech
+        value: https://jeelsojitra.tech,https://www.jeelsojitra.tech
       - key: JWT_PRIVATE_KEY
         sync: false   # set manually in Render dashboard
       - key: JWT_PUBLIC_KEY

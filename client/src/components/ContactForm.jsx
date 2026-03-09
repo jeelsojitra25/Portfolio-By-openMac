@@ -1,5 +1,4 @@
 import { useState, useCallback } from 'react';
-import { useDebounce } from '../hooks/useDebounce';
 import { sanitize } from '../utils/sanitize';
 import { apiUrl } from '../utils/api';
 
@@ -18,8 +17,6 @@ export default function ContactForm() {
   const handleChange = useCallback((e) => {
     setForm(f => ({ ...f, [e.target.name]: sanitize(e.target.value) }));
   }, []);
-
-  const debouncedChange = useDebounce(handleChange, 300);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -43,18 +40,18 @@ export default function ContactForm() {
 
   return (
     <form onSubmit={handleSubmit} noValidate aria-label="Contact form" style={{ display: 'flex', flexDirection: 'column', gap: '1rem', maxWidth: '480px' }}>
-      <input required type="text" name="name" placeholder="Your name" defaultValue={form.name}
-        onChange={debouncedChange} style={field} aria-label="Name"
+      <input required type="text" name="name" placeholder="Your name" value={form.name}
+        onChange={handleChange} style={field} aria-label="Name"
         onFocus={e => e.target.style.borderColor = 'rgba(0,255,178,0.4)'}
         onBlur={e => e.target.style.borderColor = 'rgba(255,255,255,0.08)'} />
 
-      <input required type="email" name="email" placeholder="your@email.com" defaultValue={form.email}
-        onChange={debouncedChange} style={field} aria-label="Email"
+      <input required type="email" name="email" placeholder="your@email.com" value={form.email}
+        onChange={handleChange} style={field} aria-label="Email"
         onFocus={e => e.target.style.borderColor = 'rgba(0,255,178,0.4)'}
         onBlur={e => e.target.style.borderColor = 'rgba(255,255,255,0.08)'} />
 
-      <textarea required name="message" placeholder="Your message…" rows={5} defaultValue={form.message}
-        onChange={debouncedChange} style={{ ...field, resize: 'vertical' }} aria-label="Message"
+      <textarea required name="message" placeholder="Your message…" rows={5} value={form.message}
+        onChange={handleChange} style={{ ...field, resize: 'vertical' }} aria-label="Message"
         onFocus={e => e.target.style.borderColor = 'rgba(0,255,178,0.4)'}
         onBlur={e => e.target.style.borderColor = 'rgba(255,255,255,0.08)'} />
 
