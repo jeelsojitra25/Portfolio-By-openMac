@@ -110,18 +110,10 @@ app.use(async (req, res, next) => {
 app.use('/api/', rateLimiter);
 
 // ─── Routes ──────────────────────────────────────────────────────────
-app.use('/api', require('./routes/api'));
-app.use('/api/search', require('./routes/search'));
-app.use('/api/contact', require('./routes/contact'));
-app.use('/api/auth', require('./routes/auth'));
+app.use('/api/contact',   require('./routes/contact'));
+app.use('/api/auth',      require('./routes/auth'));
 app.use('/api/analytics', require('./routes/analytics'));
-app.use('/api/chatbot', require('./routes/chatbot'));
-
-// Admin: update benchmark (JWT protected)
-app.put('/api/admin/benchmarks/:id', authenticate, (req, res) => {
-  // In a real DB-backed scenario update the record; for now return success
-  res.json({ success: true, id: req.params.id });
-});
+app.use('/api/chatbot',   require('./routes/chatbot'));
 
 // Health
 app.get('/api/health', (req, res) => {
