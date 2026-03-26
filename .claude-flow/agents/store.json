@@ -1,0 +1,33 @@
+{
+  "agents": {
+    "agent-1773258432439-60doh1": {
+      "agentId": "agent-1773258432439-60doh1",
+      "agentType": "coder",
+      "status": "idle",
+      "health": 1,
+      "taskCount": 0,
+      "config": {
+        "provider": "openai",
+        "model": "codex"
+      },
+      "createdAt": "2026-03-11T19:47:12.439Z",
+      "model": "sonnet",
+      "modelRoutedBy": "default"
+    },
+    "agent-1773258432609-gtsv8v": {
+      "agentId": "agent-1773258432609-gtsv8v",
+      "agentType": "coder",
+      "status": "idle",
+      "health": 1,
+      "taskCount": 0,
+      "config": {
+        "provider": "anthropic",
+        "model": "codex-mini"
+      },
+      "createdAt": "2026-03-11T19:47:12.609Z",
+      "model": "sonnet",
+      "modelRoutedBy": "default"
+    }
+  },
+  "version": "3.0.0"
+}

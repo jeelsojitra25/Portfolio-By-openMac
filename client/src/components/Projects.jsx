@@ -23,12 +23,45 @@ const PROJECTS = [
     accent: '#FF6B35',
     featured: false,
   },
+  {
+    name: 'Manitoba Transcript DB',
+    tagline: 'Pre-1990 Student Record Digitization System',
+    year: '2025',
+    description: 'A digitization system for pre-1990 student records built for the Government of Manitoba. Single HTML file with no build tools — runs entirely in the browser using React via CDN and Claude AI for intelligent record parsing, with localStorage for persistence.',
+    stack: ['React', 'Claude AI', 'localStorage', 'HTML'],
+    links: [
+      { label: 'GitHub', href: '#' },
+      { label: 'Demo', href: '#' },
+    ],
+    accent: '#00FFB2',
+    featured: false,
+  },
+  {
+    name: 'Transcript Overlap Splitter',
+    tagline: 'Microfiche PDF De-duplication Tool',
+    year: '2025',
+    description: 'A Python/Tkinter desktop tool that detects double-scanned microfiche pages using OCR term counting and automatically splits PDFs to remove duplicates. Built for the Government of Manitoba digitization workflow.',
+    stack: ['Python', 'Tkinter', 'PyMuPDF', 'Tesseract OCR'],
+    links: [
+      { label: 'GitHub', href: '#' },
+    ],
+    accent: '#FF6B35',
+    featured: false,
+  },
+  {
+    name: 'Jeel Portfolio',
+    tagline: 'This Portfolio — Full-Stack with AI Chatbot',
+    year: '2026',
+    description: 'This portfolio itself. Full-stack React + Node.js + PostgreSQL + Three.js. Features a Command Palette (⌘K), custom cursor, live GitHub stats, and an AI chatbot — all deployed and served from a single repository.',
+    stack: ['React', 'Node.js', 'PostgreSQL', 'Three.js', 'Groq AI'],
+    links: [
+      { label: 'GitHub', href: '#' },
+      { label: 'Live', href: '#' },
+    ],
+    accent: '#00FFB2',
+    featured: false,
+  },
 ];
-
-const TECH_ICONS = {
-  React: '⚛', 'Node.js': '🟢', Express: '🚂', PostgreSQL: '🐘',
-  'Groq AI API': '🤖', JavaScript: 'JS', HTML: '🌐', CSS: '🎨', Figma: '✏',
-};
 
 function ProjectCard({ project, delay }) {
   const [ref, visible] = useIntersection();

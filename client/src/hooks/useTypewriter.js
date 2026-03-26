@@ -6,11 +6,12 @@ import { useState, useEffect } from 'react';
  * @param {number} typeSpeed ms per character
  * @param {number} deleteSpeed ms per character delete
  * @param {number} pauseMs pause after full word typed
+ * @returns {{ displayed: string, currentIndex: number }}
  */
 export function useTypewriter(words, typeSpeed = 80, deleteSpeed = 40, pauseMs = 1800) {
   const [displayed, setDisplayed] = useState('');
   const [wordIndex, setWordIndex] = useState(0);
-  const [phase, setPhase] = useState('typing'); // 'typing' | 'pausing' | 'deleting'
+  const [phase, setPhase] = useState('typing'); // 'typing' | 'deleting'
 
   useEffect(() => {
     const word = words[wordIndex % words.length];
@@ -36,5 +37,5 @@ export function useTypewriter(words, typeSpeed = 80, deleteSpeed = 40, pauseMs =
     }
   }, [displayed, phase, wordIndex, words, typeSpeed, deleteSpeed, pauseMs]);
 
-  return displayed;
+  return { displayed, currentIndex: wordIndex % words.length };
 }

@@ -33,11 +33,11 @@ export default function GitHubStats() {
   const [ref, visible] = useIntersection();
 
   useEffect(() => {
-    fetch(`https://api.github.com/users/${USERNAME}`)
+    fetch('/api/github-stats')
       .then(r => r.json())
       .then(d => {
-        if (d.public_repos !== undefined) {
-          setStats({ repos: d.public_repos, followers: d.followers, following: d.following });
+        if (d.repos !== undefined) {
+          setStats({ repos: d.repos, followers: d.followers, following: d.following });
         } else {
           setError(true);
         }

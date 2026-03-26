@@ -1,0 +1,65 @@
+{
+  "tasks": {
+    "task-1773258443857-ctl2ne": {
+      "taskId": "task-1773258443857-ctl2ne",
+      "type": "implementation",
+      "description": "Add SEO meta tags to client/index.html: title, meta description, Open Graph tags (og:title, og:description, og:image, og:url), Twitter card tags, and canonical URL for Jeel Sojitra portfolio site",
+      "priority": "normal",
+      "status": "pending",
+      "progress": 0,
+      "assignedTo": [
+        "coder-mmmgabav"
+      ],
+      "tags": [],
+      "createdAt": "2026-03-11T19:47:23.857Z",
+      "startedAt": null,
+      "completedAt": null
+    },
+    "task-1773258451899-pukohl": {
+      "taskId": "task-1773258451899-pukohl",
+      "type": "implementation",
+      "description": "Add compression middleware to server/server.js using the 'compression' npm package. Install it and add app.use(compression()) before routes.",
+      "priority": "normal",
+      "status": "pending",
+      "progress": 0,
+      "assignedTo": [
+        "coder-mmmgabav"
+      ],
+      "tags": [],
+      "createdAt": "2026-03-11T19:47:31.899Z",
+      "startedAt": null,
+      "completedAt": null
+    },
+    "task-1773258452100-kzcx18": {
+      "taskId": "task-1773258452100-kzcx18",
+      "type": "implementation",
+      "description": "Proxy GitHub API in Express server: create GET /api/github-stats endpoint that fetches https://api.github.com/users/jeelsojitra25 and caches response for 10 minutes using the existing cache middleware. Update client/src/components/GitHubStats.jsx to fetch from /api/github-stats instead.",
+      "priority": "normal",
+      "status": "pending",
+      "progress": 0,
+      "assignedTo": [
+        "coder-mmmgabfk"
+      ],
+      "tags": [],
+      "createdAt": "2026-03-11T19:47:32.100Z",
+      "startedAt": null,
+      "completedAt": null
+    },
+    "task-1773258458259-pz6p2v": {
+      "taskId": "task-1773258458259-pz6p2v",
+      "type": "refactoring",
+      "description": "Remove dead code from client/src/components/Projects.jsx: delete the TECH_ICONS object that is defined but never used.",
+      "priority": "normal",
+      "status": "pending",
+      "progress": 0,
+      "assignedTo": [
+        "coder-mmmgabfk"
+      ],
+      "tags": [],
+      "createdAt": "2026-03-11T19:47:38.259Z",
+      "startedAt": null,
+      "completedAt": null
+    }
+  },
+  "version": "3.0.0"
+}
